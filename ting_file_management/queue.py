@@ -14,8 +14,7 @@ class Queue:
         return value
 
     def search(self, index):
-        try:
-            value = self._data[index]
-            return value
-        except IndexError:
-            print("Index should be smaller.")
+        if index < 0 or index > (len(self._data)-1):
+            raise IndexError
+        value = self._data[index]
+        return value
