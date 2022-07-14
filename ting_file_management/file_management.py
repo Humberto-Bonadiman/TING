@@ -10,3 +10,6 @@ def txt_importer(path_file):
             return [line.replace('\n', '') for line in info]
     except FileNotFoundError:
         print(f'Arquivo {path_file} não encontrado', file=sys.stderr)
+
+
+print(txt_importer("ting_file_management/text.txt"))

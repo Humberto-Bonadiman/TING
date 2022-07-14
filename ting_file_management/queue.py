@@ -18,3 +18,8 @@ class Queue:
             raise IndexError
         value = self._data[index]
         return value
+
+
+queue = Queue()
+queue.enqueue("12345")
+print(queue.search(0))
