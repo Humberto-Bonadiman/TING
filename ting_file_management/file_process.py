@@ -21,11 +21,21 @@ def process(path_file, instance):
 
 def remove(instance):
     len_instance = len(instance)
-    if(len_instance <= 0):
+    if len_instance <= 0:
         return print('Não há elementos', file=sys.stdout)
     dequeue_file = instance.dequeue()
     print(f'Arquivo {dequeue_file} removido com sucesso', file=sys.stdout)
 
 
 def file_metadata(instance, position):
-    """Aqui irá sua implementação"""
+    try:
+        result = instance.search(position)
+        content = txt_importer(result)
+        output_structure = {
+            "nome_do_arquivo": result,
+            "qtd_linhas": len(content),
+            "linhas_do_arquivo": content
+        }
+        print(output_structure, file=sys.stdout)
+    except IndexError:
+        print("Posição inválida", file=sys.stderr)
