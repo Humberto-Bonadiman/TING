@@ -15,7 +15,7 @@ def process(path_file, instance):
             "qtd_linhas": len(content),
             "linhas_do_arquivo": content
         }
-        instance.enqueue(output_structure)
+        instance.enqueue(path_file)
         return print(str(output_structure), file=sys.stdout)
 
 
