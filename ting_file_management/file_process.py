@@ -1,4 +1,5 @@
 from ting_file_management.file_management import txt_importer
+import sys
 
 
 def process(path_file, instance):
@@ -14,12 +15,17 @@ def process(path_file, instance):
             "qtd_linhas": len(content),
             "linhas_do_arquivo": content
         }
-        print(output_structure)
         instance.enqueue(output_structure)
+        return print(str(output_structure), file=sys.stdout)
 
 
 def remove(instance):
-    """Aqui irá sua implementação"""
+    len_instance = len(instance)
+    if(len_instance <= 0):
+        return print('Não há elementos', file=sys.stdout)
+    dequeue_file = instance.dequeue()
+    print(f'Arquivo {dequeue_file} removido com sucesso', file=sys.stdout)
+
 
 
 def file_metadata(instance, position):
